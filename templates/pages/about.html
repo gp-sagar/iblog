@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>{% block title %}About Us : Technical First{% endblock title %}</title>
+
+{% block content %}
+    <!-- About Us Section -->
+    <div class="container">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative my-2">
+            <div class="col-auto d-none d-lg-block p-0">
+                <img class="bd-placeholder-img" id="about-img" width="300" height="300"
+                    src="{% static 'images/logo.png' %}" alt="Logo images">
+            </div>
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-dark">About Us</strong>
+                <h3 class="mb-0">Technical First</h3>
+                <p class="card-text mb-auto">Technical First is an impeccable Tech Review platform initiated by Sagar
+                    Singh
+                    in his YouTube channel with a humongous subscription of nearly one million viewers. He is simple,
+                    realistic and honest with a vast knowledge in this specific category. We are launching this platform
+                    where we tend to focus on Quality Tech content for the tech freaks. We know the variying needs of
+                    the viewers and are completely devoted to their desires relevant to the field of technology.</p>
+            </div>
+        </div>
+    </div>
+    <!-- About Us Section End -->
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 testimonials">
+                    <div class="training-title">
+                        <h4 class="aoe-title">Testimonials</h4>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="col-center m-auto">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                            <!-- Wrapper for carousel items -->
+                            <div class="carousel-inner">
+                                <div class="item carousel-item active">
+                                    <div class="img-box">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="carousel-line"></div>
+
+                                    <p class="testimonial"><span>"</span> Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna
+                                        metus, dapibus nec turpis vel, semper malesuada ante. aliquet.</p>
+                                    <p class="overview"><b>- Sagar Singh</b></p>
+                                </div>
+                            </div>
+                            <!-- Carousel controls -->
+                            <a class="carousel-control left carousel-control-prev" href="#myCarousel"
+                                data-slide="prev"><span>Prev</span>
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="carousel-control right carousel-control-next" href="#myCarousel"
+                                data-slide="next"><span>Next</span>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section End -->
+    {% endblock content %}

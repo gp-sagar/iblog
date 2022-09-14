@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static 'images' as img %}
+
+<title>{% block title %}post : Technical First{% endblock title %}</title>
+
+
+{% block content %}
+
+<div class="container d-flex justify-content-center">
+    <div class="col-lg-8">
+        <div class="text-center">
+            <img src="https://pbs.twimg.com/media/EYzFoyEVAAAY3mP.jpg" width="80" alt="Author_image"
+                class="author-pic img-fluid rounded-circle mx-auto">
+        </div>
+        <span class="d-block text-center">Sagar Singh</span>
+        <!-- Message -->
+        {% for message in messages %}
+            <p class="text-center text-success mt-3" style="font-family: Poppins-Medium;">{{message}}</p>
+        {% endfor %}
+        <span class="date d-block text-center small text-uppercase text-black-50 mb-5">{{post.date| date:"d M Y"}}</span>
+        <!--Post Title-->
+        <h2 class="heading text-center">{{post.post_title}}</h2>
+        <!--Thumbnail Images-->
+        <img src="/media/{{post.thumbnail_img}}" alt="thumb_image" class="img-fluid rounded mb-4 d-flex m-auto">
+        <!--Post Description-->
+        <p>{{post.desc1 | safe}}</p>
+        <!--Post Image-->
+        <div class="row my-3 justify-content-center">
+            <img src="/media/{{post.post_img2}}" width="500" alt="Image" class="img-fluid rounded">
+        </div>
+        <!--Post Description-->
+        <p>{{post.desc2 | safe}}</p>
+        <hr>
+        <div class="col-md-4 my-3 d-flex">
+            <div class="social-media">
+                <p class="mb-0 d-flex">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><span
+                            class="fa-brands fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                    <a href="#" class="d-flex align-items-center justify-content-center"><span
+                            class="fa-brands fa-twitter"><i class="sr-only">Twitter</i></span></a>
+                    <a href="#" class="d-flex align-items-center justify-content-center"><span
+                            class="fa-brands fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                    <a href="#" class="d-flex align-items-center justify-content-center"><span
+                            class="fa-solid fa-link"><i class="sr-only">Link</i></span></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Comment from System -->
+<div class="container my-3">
+    <div class="card">
+        <div class="card-header text-dark">
+            Add Comments
+        </div>
+        <div class="card-body">
+            <form action="#" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="hidden" name="post_key" value="{{post.post_key}}">
+                    <label for="name" class="form-label">Name : </label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="msg" class="form-label">Message : </label>
+                    <textarea class="form-control" id="msg" name="msg" rows="3" placeholder="Your Concern"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Comment</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Comment form System End -->
+
+
+<!-- Comment System -->
+<div class="container my-3">
+    <div class="card">
+        <div class="card-header text-dark"><b>3</b> Comments</div>
+        <div class="card-body row m-auto">
+            <div class="card text-bg-secondary m-3" style="max-width: 18rem;">
+                <div class="card-header">Sagar Singh</div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="card text-bg-secondary m-3" style="max-width: 18rem;">
+                <div class="card-header">Abhishek</div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the.</p>
+                </div>
+            </div>
+            <div class="card text-bg-secondary m-3" style="max-width: 18rem;">
+                <div class="card-header">Manish</div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Comment System End -->
+
+{% endblock content %}

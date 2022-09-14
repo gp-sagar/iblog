@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<title>{% block title %}Contact Us : Technical First{% endblock title %}</title>
+    <!-- Contact Section -->
+<section class="section gray-bg" id="contactus">
+    <div class="container">
+        <!--Message-->
+        {% for message in messages %}
+        <p class="text-center text-success mt-3" style="font-family: Poppins-Medium;">{{message}}</p>
+        {% endfor %}
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-title">
+                    <h2>Get In Touch</h2>
+                    <p>Want to get in touch? We'd love to hear from you. Here's how you can reach us...</p>
+                </div>
+            </div>
+        </div>
+        <div class="row flex-row-reverse">
+            <div class="col-md-7 col-lg-8 m-15px-tb">
+                <div class="contact-form">
+                     <form method="POST" class="contactform contact_form" id="contact_form">
+                        {% csrf_token %}
+                        {% comment %} <div class="returnmessage valid-feedback p-15px-b" data-success="Your message has been received, We will contact you soon."></div> {% endcomment %}
+                        <div class="empty_notice invalid-feedback p-15px-b"><span>Please Fill Required Fields</span></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input id="name" type="text" placeholder="Full Name" name="name" class="form-control" required> 
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input id="email" type="email" placeholder="Email Address" name="email" class="form-control" required>  
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input id="subject" type="text" placeholder="Subject" name="subject" class="form-control" required> 
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea id="message" placeholder="Message" name="message" class="form-control" rows="3" required></textarea> 
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="send">
+                                    <!-- <a id="send_message" class="px-btn theme" type="submit"><span>Contact Us</span> <i class="arrow"></i></a> -->
+                                    <button id="send_message" class="px-btn theme" type="submit"><i class="arrow"></i>Contact Us</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-4 m-15px-tb">
+                <div class="contact-name">
+                    <h5>Mail</h5>
+                    <p>situ9470@gmail.com</p>
+                </div>
+                <div class="contact-name">
+                    <h5>Adress</h5>
+                    <p>Kolar road, <br>Bhopal, Madhya Pradesh</p>
+                </div>
+                <div class="contact-name">
+                    <h5>Phone</h5>
+                    <p>+91 732 083 7863</p>
+                </div>
+                <div class="social-share nav">
+                    <a class="youtube" href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a class="insta" href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a class="facebook" href="#">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Contact Section End -->
+	{% endblock content %}

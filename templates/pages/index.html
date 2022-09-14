@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static 'images' as img %}
+
+{% block content %}
+<!-- Post View Section -->
+<div class="container">
+	<!-- First Post -->
+	{% for post in blog %}
+	{% cycle 'odd' 'even' as cycle%}
+	<div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative my-2">
+		{% if cycle == 'odd' %}
+		<div class="col-auto d-none d-lg-block p-0">
+			<img src="{{post.thumbnail_img.url}}" width="350" height="250" alt="">
+		</div>
+		{% endif%}
+		<div class="col p-4 d-flex flex-column position-static">
+			<strong class="d-inline-block mb-2 text-primary">{{post.post_category}}</strong>
+			<h3 class="mb-0">{{post.post_title|slice:50}}...</h3>
+			<div class="cal d-flex align-items-center">
+				<i class="fa-solid fa-calendar mx-2 text-secondary"></i>
+				<div class="text-muted mx-2">{{post.date| date:"d M Y"}}</div>
+			</div>
+			<p class="card-text mb-auto">{{post.post_subtitle|slice:170|safe}}...</p>
+			<a href="/post/{{post.post_slug}}" class="stretched-link">Continue reading</a>
+		</div>
+		{% if cycle == 'even' %}
+		<div class="col-auto d-none d-lg-block p-0">
+			<img src="{{post.thumbnail_img.url}}" width="350" height="250" alt="">
+		</div>
+		{% endif%}
+	</div>
+	{% endfor %}
+	<!-- Second Post -->
+</div>
+<!-- Post View Section End -->
+
+
+<!-- Pagination Section -->
+<div class="col-md-4 d-flex m-auto justify-content-center">
+	<div class="social-media">
+		<p class="my-4 d-flex">
+			<a href="#" class="d-flex align-items-center justify-content-center">1</a>
+			<a href="#" class="d-flex align-items-center justify-content-center">2</a>
+			<a href="#" class="d-flex align-items-center justify-content-center">3</a>
+			<a href="#" class="d-flex align-items-center justify-content-center">4</a>
+			<a href="#" class="d-flex align-items-center justify-content-center">5</a>
+		</p>
+	</div>
+</div>
+<!-- Pagination Section End -->
+
+{% endblock content %}
